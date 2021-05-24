@@ -9,5 +9,6 @@ It is an all in one web app for home quarantined covid patients. It has a severi
 * gnewsclient 
 * webbrowser
 * pickle 
+Git reposititory for chatbot is: 
 
 
