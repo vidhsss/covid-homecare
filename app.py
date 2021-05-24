@@ -378,7 +378,7 @@ def main():
         query=st.text_input("Any keywords to search:")
         
         countr= st.radio ("",['World','India'])
-        if countr=='India':  
+#         if countr=='India':  
             
             # top_headlines = newsapi.get_top_headlines(
             # category=categor,
@@ -386,19 +386,20 @@ def main():
             # country='in',
             # q=query
             # )
-            client = gnewsclient.NewsClient(language='english', 
-                                location='India', 
-                                topic=categor)
-        elif countr=='World' :
-            
-            # top_headlines = newsapi.get_top_headlines(
-            # category=categor,
-            # language='en',
-            # q=query
-            # )
-            client = gnewsclient.NewsClient(language='english', 
+        client = gnewsclient.NewsClient(language='english', 
+                                location='india', 
                                 topic=categor,
-                                max_results=10)
+                                       max_results=10)
+#         elif countr=='World' :
+            
+#             # top_headlines = newsapi.get_top_headlines(
+#             # category=categor,
+#             # language='en',
+#             # q=query
+#             # )
+#             client = gnewsclient.NewsClient(language='english', 
+#                                 topic=categor,
+#                                 max_results=10)
 
         # for article in top_headlines['articles']:
             
