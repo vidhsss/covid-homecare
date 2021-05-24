@@ -19,7 +19,7 @@ import time
 import matplotlib.pyplot as plt
 import pickle 
 import sklearn
-import gnewsclient
+from gnewsclient import gnewsclient
 # import xgboost
 from sklearn import ensemble
 
