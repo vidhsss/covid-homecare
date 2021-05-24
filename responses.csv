@@ -1,12 +1,29 @@
-"Timestamp","Age","Gender","Blood group:","Physical Activity before Covid:","How long did Covid virus last for you?","Do you have any of the following conditions:","Did you require Oxygen supply?","If yes, how much ?","Were you hospitalised?","If yes, for how long?","What were the main after effects of covid 19 virus for you?"
-"2021/05/16 10:54:26 PM GMT+5:30","19","Male","AB+","2-3 days a week","not good","cardiovascular disease","Yes","","No","","heart diseases"
-"2021/05/16 10:55:14 PM GMT+5:30","19","Male","B+","2-3 days a week","16 days","none","No","","No","","fatigue"
-"2021/05/16 11:12:59 PM GMT+5:30","20","Female","B+","3-4 days a week","7-8 days","none","No","","No","","Breathlessness"
-"2021/05/16 11:13:21 PM GMT+5:30","20","Female","O+","5-6 days a week","14","Diabetes","No","","No","","fatigue"
-"2021/05/16 11:14:14 PM GMT+5:30","45","Female","AB+","3-4 days a week","20 days","none","Yes","2-3L","Yes","4-5 days","fatigue"
-"2021/05/16 11:14:40 PM GMT+5:30","51","Male","B+","3-4 days a week","20 days","none","No","","No","","fatigue"
-"2021/05/16 11:28:25 PM GMT+5:30","19","Male","O+","No physical activity","15 days","obesity","No","","No","","fatigue"
-"2021/05/16 11:33:03 PM GMT+5:30","44","Female","B+","No physical activity","13 days","none","No","","No","","fatigue;Cough and digestive problems "
-"2021/05/16 11:33:31 PM GMT+5:30","10","Female","O+","2-3 days a week","13 days","none","No","","No","","fatigue"
-"2021/05/16 11:34:21 PM GMT+5:30","46","Male","O+","No physical activity","14 days","Diabetes;obesity","No","","No","","fatigue"
-"2021/05/17 1:20:08 AM GMT+5:30","20","Male","AB+","5-6 days a week","8 days","none","No","","No","","fatigue"
+,Age,Gender,Blood group:,Physical Activity before Covid:,How long did Covid virus last for you?,Do you have any of the following conditions:,Did you require Oxygen supply?,"If yes, how much ?",Were you hospitalised?,"If yes, for how long?",What were the main after effects of covid 19 virus for you?,,Severity
+,19,Male,B+,2-3 days a week,16 days,none,No,,No,,fatigue,,Mild
+,20,Female,B+,3-4 days a week,8 days ,none,No,,No,,Breathlessness,,Mild
+,45,Female,AB+,3-4 days a week,20 days,none,Yes,2-3L,Yes,4-5 days,fatigue,,Mild
+,51,Male,B+,3-4 days a week,20 days,none,No,,No,,fatigue,,Mild
+,19,Male,O+,No physical activity,15 days,obesity,No,,No,,fatigue,,Mild
+,44,Female,B+,No physical activity,13 days,none,No,,No,,"fatigue, Cough and digestive problems ",,Moderate
+,10,Female,O+,2-3 days a week,13 days,none,No,,No,,fatigue,,
+,46,Male,O+,No physical activity,14 days,"Diabetes, obesity",No,,No,,fatigue,,
+,20,Male,AB+,5-6 days a week,8 days,none,No,,No,,fatigue,,
+,47,Female,B+,5-6 days a week,11 days ,none,No,,No,,fatigue,,
+,31,Female,B+,3-4 days a week,14 days,none,Yes,,Yes,4-5 days,pnemonia,,
+,20,Male,AB-,5-6 days a week,14 days,none,No,,No,,None,,
+,18,Female,O+,5-6 days a week,15 days,none,No,,No,,None,,
+,19,Female,O+,3-4 days a week,10 days,none,No,,No,,fatigue,,
+,19,Male,AB+,3-4 days a week,7 days,none,No,,No,,None,,
+,85,Male,AB+,No physical activity,7 days,"Diabetes, obesity",Yes,After recovering from covid 25L at first now 2L constantly,Yes,24 days,"fatigue, lungs diseases",,
+,20,Male, b+,3-4 days a week,13,none,No,,No,,fatigue,,
+,20,Male,B+,5-6 days a week,5,none,No,,No,,fatigue,,
+,19,Female,O+,2-3 days a week,15 days,none,No,,No,,fatigue,,
+,19,Male,AB+,3-4 days a week,1 week,none,No,,No,,None,,
+,20,Male,B+,5-6 days a week,14 days,none,No,NA,No,NA,None,,
+,18,Male,B+,2-3 days a week,14 days ,none,No,,No,,Coughing ,,
+,20,Male,B+,5-6 days a week,14 days,none,No,NA,No,NA,None,,
+,23,Male,O+,3-4 days a week,14-16 days,none,Yes,1 L,No,,,,
+,46,Female,AB+,3-4 days a week,20 days,none,Yes,2-3L,Yes,4-5 days,fatigue,,
+,16,Male,O+,3-4,14 days,none,No,,,,,,
+,45,Female,B+,3-4,14 days,none,No,,,,,,
+,50,Male,O-,3-4,14 days,none,No,,,,,,
