@@ -10,5 +10,6 @@ It is an all in one web app for home quarantined covid patients. It has a severi
 * webbrowser
 * pickle 
 #### Git reposititory for chatbot is: https://github.com/vidhsss/CHATBOT
+#### link: https://health-home.herokuapp.com
 
 
