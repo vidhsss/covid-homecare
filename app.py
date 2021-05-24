@@ -410,11 +410,11 @@ def main():
         #             st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
         news_list = client.get_news()
         for article in news_list:
-            description=article['title']
-            y=pred([description])
+            descript=article['title']
+            y=pred([descript])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                   st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['link']))
+                   st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['link']))
             
 
     
