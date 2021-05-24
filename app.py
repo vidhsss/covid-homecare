@@ -377,7 +377,7 @@ def main():
 
         query=st.text_input("Any keywords to search:")
         
-        countr= st.radio ("",['World','India'])
+#         countr= st.radio ("",['World','India'])
 #         if countr=='India':  
             
             # top_headlines = newsapi.get_top_headlines(
@@ -389,7 +389,7 @@ def main():
         client = gnewsclient.NewsClient(language='english', 
                                 location='india', 
                                 topic=categor,
-                                       max_results=10)
+                                   max_results=10)
 #         elif countr=='World' :
             
 #             # top_headlines = newsapi.get_top_headlines(
@@ -415,7 +415,7 @@ def main():
             y=pred([descript])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                   st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['url']))
+                   st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['link']))
             
 
     
