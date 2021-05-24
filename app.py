@@ -373,8 +373,7 @@ def main():
         unsafe_allow_html=True,) 
         categor = st.selectbox(
         'Choose a Category',
-        ('business', 'health', 'entertainment','general','science','sports','technology')
-        )
+        (        ('Top Stories','World','Nation','Business','Technology','Entertainment','Sports','Science','Health'))
 
         query=st.text_input("Any keywords to search:")
         
@@ -389,8 +388,7 @@ def main():
             # )
             client = gnewsclient.NewsClient(language='english', 
                                 location='India', 
-                                topic=categor,
-                                max_results=10)
+                                topic=categor)
         elif countr=='World' :
             
             # top_headlines = newsapi.get_top_headlines(
@@ -416,7 +414,7 @@ def main():
             y=pred([description])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                   st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['desc'],article['link']))
+                   st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['link']))
             
 
     
