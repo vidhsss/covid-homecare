@@ -19,11 +19,12 @@ import time
 import matplotlib.pyplot as plt
 import pickle 
 import sklearn
+import gnewsclient
 # import xgboost
 from sklearn import ensemble
 
 import joblib
-from newsapi import NewsApiClient
+# from newsapi import NewsApiClient
 # from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
@@ -39,11 +40,11 @@ def get_rating_from_index(index):
 def get_index_from_title(original_title):
   return df.loc[df.original_title == original_title].index[0]
 
-#pickle_in4 = open("movie.pkl","rb")
-#cosine_sim1=pickle.load(pickle_in4)
-#df=pd.read_csv("movies.csv")
+# pickle_in4 = open("movie.pkl","rb")
+# cosine_sim1=pickle.load(pickle_in4)
+# df=pd.read_csv("movies.csv")
 
-newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
+# newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
 # query= input("keyword")
 
 
@@ -380,28 +381,45 @@ def main():
         countr= st.radio ("",['World','India'])
         if countr=='India':  
             
-            top_headlines = newsapi.get_top_headlines(
-            category=categor,
-            language='en',
-            country='in',
-            q=query
-            )
+            # top_headlines = newsapi.get_top_headlines(
+            # category=categor,
+            # language='en',
+            # country='in',
+            # q=query
+            # )
+            client = gnewsclient.NewsClient(language='english', 
+                                location='India', 
+                                topic=categor,
+                                max_results=10)
         elif countr=='World' :
             
-            top_headlines = newsapi.get_top_headlines(
-            category=categor,
-            language='en',
-            q=query
-            )
+            # top_headlines = newsapi.get_top_headlines(
+            # category=categor,
+            # language='en',
+            # q=query
+            # )
+            client = gnewsclient.NewsClient(language='english', 
+                                topic=categor,
+                                max_results=10)
 
-        for article in top_headlines['articles']:
+        # for article in top_headlines['articles']:
+            
         
+        #     description=article['title']
+        #     y=pred([description])
+        #     if y==1 or y==2 : 
+        #         if "Deaths" or "died" or "die" not in description: 
+        #             st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
+        news_list = client.get_news()
+        for article in news_list:
             description=article['title']
             y=pred([description])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
+                   st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['desc'],article['link']))
+            
 
+    
     elif selection == 'Introduction': 
         textbg = """
         <div style="background-color:{};background:  #3A3985">
