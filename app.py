@@ -373,7 +373,7 @@ def main():
         unsafe_allow_html=True,) 
         categor = st.selectbox(
         'Choose a Category',
-        (        ('Top Stories','World','Nation','Business','Technology','Entertainment','Sports','Science','Health'))
+        (        ('Top Stories','World','Nation','Business','Technology','Entertainment','Sports','Science','Health')))
 
         query=st.text_input("Any keywords to search:")
         
