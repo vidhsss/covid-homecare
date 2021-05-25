@@ -41,16 +41,15 @@ def get_rating_from_index(index):
 def get_index_from_title(original_title):
   return df.loc[df.original_title == original_title].index[0]
 
-#pickle_in4 = open("movie2.pkl","rb")
-#cosine_sim1=pickle.load(pickle_in4)
-df=pd.read_csv("movies.csv")
-pickle_in4 = open("movies4.pkl","rb")
-count=pickle.load(pickle_in4)
-# newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
-# query= input("keyword")
-from sklearn.metrics.pairwise import cosine_similarity
 
-sig =  cosine_similarity(count)
+# df=pd.read_csv("movies.csv")
+# pickle_in4 = open("movies4.pkl","rb")
+# count=pickle.load(pickle_in4)
+# # newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
+# # query= input("keyword")
+# from sklearn.metrics.pairwise import cosine_similarity
+
+# sig =  cosine_similarity(count)
 
 vect = CountVectorizer(max_features=1000, binary=True)
 pickle_in4= open("news.pkl","rb")
