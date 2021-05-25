@@ -25,7 +25,7 @@ from gnewsclient import gnewsclient
 from sklearn import ensemble
 
 import joblib
-# from newsapi import NewsApiClient
+from newsapi import NewsApiClient
 from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
@@ -45,7 +45,7 @@ def get_index_from_title(original_title):
 # df=pd.read_csv("movies.csv")
 # pickle_in4 = open("movies4.pkl","rb")
 # count=pickle.load(pickle_in4)
-# # newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
+newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
 # # query= input("keyword")
 # from sklearn.metrics.pairwise import cosine_similarity
 
@@ -376,49 +376,49 @@ def main():
         unsafe_allow_html=True,) 
         categor = st.selectbox(
         'Choose a Category',
-        (        ('Top Stories','World','Nation','Business','Technology','Entertainment','Sports','Science','Health')))
+        (        ('Top Stories','World','Nation','business','Technology','Entertainment','Sports','Science','Health')))
 
         query=st.text_input("Any keywords to search:")
         
-#         countr= st.radio ("",['World','India'])
-#         if countr=='India':  
+        countr= st.radio ("",['World','India'])
+        if countr=='India':  
             
-            # top_headlines = newsapi.get_top_headlines(
-            # category=categor,
-            # language='en',
-            # country='in',
-            # q=query
-            # )
-        client = gnewsclient.NewsClient(language='english', 
-                                location='india', 
-                                topic=categor,
-                                   max_results=10)
-#         elif countr=='World' :
+            top_headlines = newsapi.get_top_headlines(
+            category=categor,
+            language='en',
+            country='in',
+            q=query
+            )
+#         client = gnewsclient.NewsClient(language='english', 
+#                                 location='india', 
+#                                 topic=categor,
+#                                    max_results=10)
+        elif countr=='World' :
             
-#             # top_headlines = newsapi.get_top_headlines(
-#             # category=categor,
-#             # language='en',
-#             # q=query
-#             # )
+            top_headlines = newsapi.get_top_headlines(
+            category=categor,
+            language='en',
+            q=query
+            )
 #             client = gnewsclient.NewsClient(language='english', 
 #                                 topic=categor,
 #                                 max_results=10)
 
-        # for article in top_headlines['articles']:
+        for article in top_headlines['articles']:
             
         
-        #     description=article['title']
-        #     y=pred([description])
-        #     if y==1 or y==2 : 
-        #         if "Deaths" or "died" or "die" not in description: 
-        #             st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
-        news_list = client.get_news()
-        for article in news_list:
-            descript=article['title']
-            y=pred([descript])
+            description=article['title']
+            y=pred([description])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                   st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['link']))
+                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
+#         news_list = client.get_news()
+#         for article in news_list:
+#             descript=article['title']
+#             y=pred([descript])
+#             if y==1 or y==2 : 
+#                 if "Deaths" or "died" or "die" not in description: 
+#                    st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['link']))
             
 
     
@@ -533,7 +533,7 @@ def main():
             name=str(col1.text_input("Search the song name"))
             
             try:
-                num=ENCODER [(name)]
+                num=ENCODER [(name.upper())]
                 test = song_data.values[num]
                 recommend = recommendSongs(test)
         
