@@ -376,7 +376,7 @@ def main():
         unsafe_allow_html=True,) 
         categor = st.selectbox(
         'Choose a Category',
-        (        ('Top Stories','World','Nation','business','Technology','Entertainment','Sports','Science','Health')))
+        (        ('business','entertainment','general','health','science','sports','technology')))
 
         query=st.text_input("Any keywords to search:")
         
@@ -384,11 +384,11 @@ def main():
         if countr=='India':  
             
             
-            my_url =  " https://newsapi.org/v2/top-headlines?country=in&category="+categor+"&q="+query+"&apiKey="+my_api_key
+            my_url =  " https://newsapi.org/v2/top-headlines?country=in&category="+categor+"&q="+query+"&apiKey="+api_key
 #         
         elif countr=='World' :
             
-            my_url =  " https://newsapi.org/v2/top-headlines?category="+categor+"&q="+query+"&apiKey="+my_api_key
+            my_url =  " https://newsapi.org/v2/top-headlines?category="+categor+"&q="+query+"&apiKey="+api_key
         page = requests.get(my_url).json()
         articles = page["articles"]
         
