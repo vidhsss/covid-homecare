@@ -5,13 +5,9 @@ import time
 import os
 import pickle
 import shutil
-# import plotly.graph_objects as go
-from PIL import Image
-# from plotly.subplots import make_subplots
-from PIL import Image, ImageOps
+
 import numpy as np
-# import base64
-# import path
+
 import json
 import streamlit.components.v1 as components
 import webbrowser 
@@ -40,12 +36,11 @@ def get_rating_from_index(index):
 
 def get_index_from_title(original_title):
   return df.loc[df.original_title == original_title].index[0]
-
+api_key='c9e5723356c24681b8ad6fcdd86566dc'
 
 # df=pd.read_csv("movies.csv")
 # pickle_in4 = open("movies4.pkl","rb")
 # count=pickle.load(pickle_in4)
-api_key='c9e5723356c24681b8ad6fcdd86566dc'
 # # query= input("keyword")
 # from sklearn.metrics.pairwise import cosine_similarity
 
@@ -69,8 +64,7 @@ pickle_in4 = open("model3.pkl","rb")
 model=pickle.load(pickle_in4)
 
 
-# import tensorflow as tf
-# from tensorflow.keras.models import load_model
+
 
 def main():
     
@@ -385,7 +379,7 @@ def main():
             
             
             my_url =  " https://newsapi.org/v2/top-headlines?country=in&category="+categor+"&q="+query+"&apiKey="+api_key
-#         
+       
         elif countr=='World' :
             
             my_url =  " https://newsapi.org/v2/top-headlines?category="+categor+"&q="+query+"&apiKey="+api_key
@@ -393,14 +387,7 @@ def main():
         articles = page["articles"]
         
             
-#             top_headlines = newsapi.get_top_headlines(
-#             category=categor,
-#             language='en',
-#             q=query
-#             )
-#             client = gnewsclient.NewsClient(language='english', 
-#                                 topic=categor,
-#                                 max_results=10)
+
 
         for article in articles:
             
@@ -409,14 +396,8 @@ def main():
             y=pred([description])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
-#         news_list = client.get_news()
-#         for article in news_list:
-#             descript=article['title']
-#             y=pred([descript])
-#             if y==1 or y==2 : 
-#                 if "Deaths" or "died" or "die" not in description: 
-#                    st.success('Title : {}\n\n Description :  \n\nContinue reading at: {} '.format(article['title'],article['link']))
+                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['link']))
+       
             
 
     
