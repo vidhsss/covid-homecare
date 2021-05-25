@@ -26,7 +26,7 @@ from sklearn import ensemble
 
 import joblib
 # from newsapi import NewsApiClient
-#from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
+from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
 from sklearn.naive_bayes import MultinomialNB
@@ -48,9 +48,9 @@ pickle_in4 = open("movies4.pkl","rb")
 count=pickle.load(pickle_in4)
 # newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
 # query= input("keyword")
-from sklearn.metrics.pairwise import sigmoid_kernel
+from sklearn.metrics.pairwise import cosine_similarity
 
-sig = sigmoid_kernel(count, count)
+sig =  cosine_similarity(count)
 
 vect = CountVectorizer(max_features=1000, binary=True)
 pickle_in4= open("news.pkl","rb")
