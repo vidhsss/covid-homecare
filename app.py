@@ -18,6 +18,7 @@ import webbrowser
 import time 
 import matplotlib.pyplot as plt
 import pickle 
+import gzip
 import sklearn
 from gnewsclient import gnewsclient
 # import xgboost
