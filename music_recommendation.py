@@ -52,14 +52,3 @@ def recommendSongs(song):
     return RECOMMENDED_SONGS 
 # name='JE M'DONNE"
 # artist="['MAURICE CHEVALIER']"
-name=input()
-# artist=input()
-num=ENCODER [(name)]
-test = song_data.values[num]
-recommend = recommendSongs(test)
-print(recommend
-      )
-# recommend_sort=sorted(recommend,key=lambda x: x[1])
-for song in recommend:
-    # print(song)
-    print(SONGS.loc[song, "name"])
