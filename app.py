@@ -25,7 +25,7 @@ from sklearn import ensemble
 
 import joblib
 # from newsapi import NewsApiClient
-# from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
+from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
 from sklearn.naive_bayes import MultinomialNB
