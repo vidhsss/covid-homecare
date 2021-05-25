@@ -25,7 +25,7 @@ from gnewsclient import gnewsclient
 from sklearn import ensemble
 
 import joblib
-from newsapi import NewsApiClient
+import requests 
 from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
@@ -45,7 +45,7 @@ def get_index_from_title(original_title):
 # df=pd.read_csv("movies.csv")
 # pickle_in4 = open("movies4.pkl","rb")
 # count=pickle.load(pickle_in4)
-newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
+api_key='c9e5723356c24681b8ad6fcdd86566dc'
 # # query= input("keyword")
 # from sklearn.metrics.pairwise import cosine_similarity
 
@@ -383,28 +383,26 @@ def main():
         countr= st.radio ("",['World','India'])
         if countr=='India':  
             
-            top_headlines = newsapi.get_top_headlines(
-            category=categor,
-            language='en',
-            country='in',
-            q=query
-            )
-#         client = gnewsclient.NewsClient(language='english', 
-#                                 location='india', 
-#                                 topic=categor,
-#                                    max_results=10)
+            
+            my_url =  " https://newsapi.org/v2/top-headlines?country=in&category="+categor+"&q="+query+"&apiKey="+my_api_key
+#         
         elif countr=='World' :
             
-            top_headlines = newsapi.get_top_headlines(
-            category=categor,
-            language='en',
-            q=query
-            )
+            my_url =  " https://newsapi.org/v2/top-headlines?category="+categor+"&q="+query+"&apiKey="+my_api_key
+        page = requests.get(my_url).json()
+        articles = page["articles"]
+        
+            
+#             top_headlines = newsapi.get_top_headlines(
+#             category=categor,
+#             language='en',
+#             q=query
+#             )
 #             client = gnewsclient.NewsClient(language='english', 
 #                                 topic=categor,
 #                                 max_results=10)
 
-        for article in top_headlines['articles']:
+        for article in articles:
             
         
             description=article['title']
