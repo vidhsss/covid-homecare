@@ -136,7 +136,7 @@ def main():
         <h1 style="color:{};text-align:center;"><b>Covi Bot</b></h1>
         </div>
         """
-        bgcolor = 'gray'
+        bgcolor = ''
         fontcolor = 'black'
         st.markdown(textbg.format(bgcolor,fontcolor),unsafe_allow_html=True)
 
@@ -158,6 +158,7 @@ def main():
         </style>
         """,
         unsafe_allow_html=True,)
+        st.write("It can be accessed at https://chat235.herokuapp.com")
 
         webbrowser.open_new('http://chat2325.herokuapp.com') 
    
