@@ -39,10 +39,10 @@ def get_index_from_title(original_title):
 api_key='c9e5723356c24681b8ad6fcdd86566dc'
 
 # df=pd.read_csv("movies.csv")
-# pickle_in4 = open("movies4.pkl","rb")
-# count=pickle.load(pickle_in4)
+pickle_in4 = open("movies4.pkl","rb")
+count=pickle.load(pickle_in4)
 # # query= input("keyword")
-# from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import cosine_similarity
 
 # sig =  cosine_similarity(count)
 
@@ -484,6 +484,7 @@ def main():
         if selection1=='Movies' : 
             st.header("MOVIE RECOMMENDATION")
             df=pd.read_csv("movies.csv")
+            sig =  cosine_similarity(count)
             
             movie_user_likes = st.text_input("Search the movie for which you want recommendations for: ")
             try:
@@ -508,7 +509,7 @@ def main():
             st.header("MUSIC RECOMMENDATION")
             col1, col2 = st.beta_columns(2)
 
-            name=" "
+            
             
             name=str(col1.text_input("Search the song name"))
             
@@ -516,14 +517,19 @@ def main():
                 num=ENCODER [(name.upper())]
                 test = song_data.values[num]
                 recommend = recommendSongs(test)
+                col1, col2 = st.beta_columns(2)
+                col1.info("Songs")
+                col2.info("Arist")
         
                 # recommend_sort=sorted(recommend,key=lambda x: x[1])
                 for song in recommend:
                     # print(song)
-                    st.write(SONGS.loc[song, "name"])
+                    col1.text(SONGS.loc[song, "name"])
+                    col2.text(SONGS.loc[song, "artists"])
+                    
             except: 
-                st.write("")
-                # st.text("write a valid song name")
+#                 st.write("")
+                st.text("write a valid song name")
 
         elif selection1=='General' : 
             st.write("It can be anxious staying in a room for days. Being happy and in high sprits is as important as being healthy. Below are few pass time activities you can get yourself engaged in during quarantine: ")
