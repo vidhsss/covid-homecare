@@ -30,7 +30,7 @@ from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 from sklearn.naive_bayes import MultinomialNB
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
 
 def get_title_from_index(index):
       return df.loc[index, "original_title"]
@@ -46,7 +46,10 @@ def get_index_from_title(original_title):
 
 # newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
 # query= input("keyword")
-
+df=pd.read_csv("movies.csv")
+fp = gzip.open('movie2.data','rb') #This assumes that tfidf.data is already packed with gzip
+cosine_sim1 = pickle.load(fp)
+fp.close()
 
 vect = CountVectorizer(max_features=1000, binary=True)
 pickle_in4= open("news.pkl","rb")
@@ -528,7 +531,7 @@ def main():
             name=" "
             
             name=str(col1.text_input("Search the song name"))
-            
+            name=name.upper()
             try:
                 num=ENCODER [(name)]
                 test = song_data.values[num]
