@@ -531,9 +531,9 @@ def main():
             name=" "
             
             name=str(col1.text_input("Search the song name"))
-            name= name.upper()
+            
             try:
-                num=ENCODER [(name)]
+                num=ENCODER [(name))]
                 test = song_data.values[num]
                 recommend = recommendSongs(test)
         
