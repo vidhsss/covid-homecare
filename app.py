@@ -17,8 +17,8 @@ import streamlit.components.v1 as components
 import webbrowser 
 import time 
 import matplotlib.pyplot as plt
-import pickle 
-import gzip
+import pickle
+
 import sklearn
 from gnewsclient import gnewsclient
 # import xgboost
@@ -26,7 +26,7 @@ from sklearn import ensemble
 
 import joblib
 # from newsapi import NewsApiClient
-from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
+#from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 
 
 from sklearn.naive_bayes import MultinomialNB
@@ -41,16 +41,16 @@ def get_rating_from_index(index):
 def get_index_from_title(original_title):
   return df.loc[df.original_title == original_title].index[0]
 
-# pickle_in4 = open("movie.pkl","rb")
-# cosine_sim1=pickle.load(pickle_in4)
-# df=pd.read_csv("movies.csv")
-
+#pickle_in4 = open("movie2.pkl","rb")
+#cosine_sim1=pickle.load(pickle_in4)
+df=pd.read_csv("movies.csv")
+pickle_in4 = open("movies4.pkl","rb")
+count=pickle.load(pickle_in4)
 # newsapi = NewsApiClient(api_key='c9e5723356c24681b8ad6fcdd86566dc')
 # query= input("keyword")
-df=pd.read_csv("movies.csv")
-fp = gzip.open('movie2.data','rb') #This assumes that tfidf.data is already packed with gzip
-cosine_sim1 = pickle.load(fp)
-fp.close()
+from sklearn.metrics.pairwise import sigmoid_kernel
+
+sig = sigmoid_kernel(count, count)
 
 vect = CountVectorizer(max_features=1000, binary=True)
 pickle_in4= open("news.pkl","rb")
@@ -510,7 +510,7 @@ def main():
             try:
                 movie_index = get_index_from_title(movie_user_likes.upper())
         # Compile similar movies based on cosine similarity
-                similar_movies = list(enumerate(cosine_sim1[movie_index]))
+                similar_movies = list(enumerate(sig[movie_index]))
                 sorted_similar_movies = sorted(similar_movies,key=lambda x: x[1], reverse=True)
                 i=0
                 col1, col2 = st.beta_columns(2)
@@ -532,7 +532,7 @@ def main():
             name=" "
             
             name=str(col1.text_input("Search the song name"))
-            name=name.upper()
+            name= name.upper()
             try:
                 num=ENCODER [(name)]
                 test = song_data.values[num]
