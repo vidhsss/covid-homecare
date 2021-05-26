@@ -136,8 +136,8 @@ def main():
         <h1 style="color:{};text-align:center;"><b>Covi Bot</b></h1>
         </div>
         """
-        bgcolor = ''
-        fontcolor = 'black'
+        bgcolor = 'gray'
+        fontcolor = 'white'
         st.markdown(textbg.format(bgcolor,fontcolor),unsafe_allow_html=True)
 
         text = """
@@ -145,7 +145,7 @@ def main():
         <h1 style="color:{};text-align:center;"><font size=4><b> The selected 'Chatbot' command will redirect you to an AI bot. You can ask it basic questions like fitness, plasma donation in corona. And in case of any emergency you can asscess the resources as well. </b></font></h1>
         </div>
         """
-        bgcolor = 'gray'
+        bgcolor = ''
         fontcolor = 'black'
         st.markdown(text.format(bgcolor,fontcolor),unsafe_allow_html=True)
         st.markdown(
@@ -424,7 +424,7 @@ def main():
             y=pred([description])
             if y==1 or y==2 : 
                 if "Deaths" or "died" or "die" not in description: 
-                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['link']))
+                    st.success('Title : {}\n\n Description : {} \n\nContinue reading at: {} '.format(article['title'],article['description'],article['url']))
        
             
 
