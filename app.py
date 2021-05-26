@@ -510,7 +510,7 @@ def main():
         selection1 = st.sidebar.radio("", ['General','Movies','Music'])
         if selection1=='Movies' : 
             st.header("MOVIE RECOMMENDATION")
-            df=pd.read_csv("movies.csv")
+            df = pd.read_csv("movies.csv")
             sig =  cosine_similarity(count)
             movie_user_likes="the kissing booth"
 #             movie_user_likes = st.text_input("Search the movie for which you want recommendations for: ")
