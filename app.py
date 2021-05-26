@@ -28,7 +28,7 @@ from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
-url = 'https://raw.githubusercontent.com/your_account_name/repository_name/master/file.csv'
+url = 'https://raw.githubusercontent.com/vidhsss/covid-homecare/blob/main/movies.csv'
 
 
 df= pd.read_csv(url,sep=",")
