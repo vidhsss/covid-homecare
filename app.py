@@ -158,9 +158,36 @@ def main():
         </style>
         """,
         unsafe_allow_html=True,)
-        st.write("It can be accessed at https://chat235.herokuapp.com")
+      
 
-        webbrowser.open_new('http://chat2325.herokuapp.com') 
+        st.markdown(
+        """
+       
+        
+        <style>
+        a:link, a:visited {
+          background-color: black;
+          color: white;
+          padding: 14px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+
+        a:hover, a:active {
+          background-color: gray ;
+        }
+        </style>
+        </head>
+        <body>
+
+        
+        <a href="http://chat2325.herokuapp.com" target="_blank">Chatbot</a>
+
+    
+    
+        """,
+        unsafe_allow_html=True)
    
     elif selection == 'Covid-19 Symptom Checker': 
         textbg = """
