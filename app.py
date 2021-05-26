@@ -512,12 +512,14 @@ def main():
             st.header("MOVIE RECOMMENDATION")
             df=pd.read_csv("movies.csv")
             sig =  cosine_similarity(count)
-            
-            movie_user_likes = st.text_input("Search the movie for which you want recommendations for: ")
+            movie_user_likes="the kissing booth"
+#             movie_user_likes = st.text_input("Search the movie for which you want recommendations for: ")
+            movie_index = get_index_from_title(movie_user_likes.upper())
+            similar_movies = list(enumerate(sig[movie_index]))
             try:
-                movie_index = get_index_from_title(movie_user_likes.upper())
+#                 movie_index = get_index_from_title(movie_user_likes.upper())
         # Compile similar movies based on cosine similarity
-                similar_movies = list(enumerate(sig[movie_index]))
+#                 similar_movies = list(enumerate(sig[movie_index]))
                 sorted_similar_movies = sorted(similar_movies,key=lambda x: x[1], reverse=True)
                 i=0
                 col1, col2 = st.beta_columns(2)
