@@ -518,7 +518,7 @@ def main():
             sig =  cosine_similarity(count)
             
             movie_user_likes = st.text_input("Search the movie for which you want recommendations for: ")
-            m
+            
             try:
                 movie_index = get_index_from_title(movie_user_likes.upper())
        
