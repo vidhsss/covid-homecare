@@ -28,7 +28,7 @@ from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
-
+df= pd.read_csv("movies.csv")
 def get_title_from_index(index):
       return df.loc[index, "original_title"]
 def get_rating_from_index(index):
