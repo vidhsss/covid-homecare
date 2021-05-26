@@ -1,5 +1,5 @@
-import pandas 
-df= pd.read_csv(url,sep=",")
+import pandas as pd
+df= pd.read_csv('movies.csv')
 def get_title_from_index(index):
       return df.loc[index, "original_title"]
 def get_rating_from_index(index):
