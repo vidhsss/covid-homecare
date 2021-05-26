@@ -23,22 +23,23 @@ from sklearn import ensemble
 import joblib
 import requests 
 from music_recommendation import recommendSongs,ENCODER,song_data,SONGS
+from movies import get_title_from_index,get_rating_from_index,get_index_from_title
 
 
 from sklearn.naive_bayes import MultinomialNB
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
-url = 'https://raw.githubusercontent.com/vidhsss/covid-homecare/blob/main/movies.csv'
+# url = 'https://raw.githubusercontent.com/vidhsss/covid-homecare/blob/main/movies.csv'
 
 
-df= pd.read_csv(url,sep=",")
-def get_title_from_index(index):
-      return df.loc[index, "original_title"]
-def get_rating_from_index(index):
-  return df.loc[index, "original_title"],df.loc[index, "reviews_from_users"]
+# df= pd.read_csv(url,sep=",")
+# def get_title_from_index(index):
+#       return df.loc[index, "original_title"]
+# def get_rating_from_index(index):
+#   return df.loc[index, "original_title"],df.loc[index, "reviews_from_users"]
 
-def get_index_from_title(original_title):
-  return df.loc[df.original_title == original_title].index[0]
+# def get_index_from_title(original_title):
+#   return df.loc[df.original_title == original_title].index[0]
 api_key='c9e5723356c24681b8ad6fcdd86566dc'
 
 # df=pd.read_csv("movies.csv")
